@@ -1,6 +1,7 @@
 import { useEffect , useState } from 'react';
 
-import { View , Image, FlatList } from 'react-native';
+import {  Image, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { GameCard , GameCardProps } from '../../components/GameCard';
 import logoImg from '../../assets/logo-nlw-esports.png'
 import { Heading } from '../../components/Heading';
@@ -18,7 +19,7 @@ export function Home() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
       source={logoImg}
       style={styles.logo}
@@ -41,6 +42,6 @@ export function Home() {
         horizontal
         contentContainerStyle={styles.contentList}
       /> 
-    </View>
+    </SafeAreaView>
   );
 }
