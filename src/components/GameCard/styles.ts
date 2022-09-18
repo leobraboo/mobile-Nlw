@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
   },
 
   cover:{
-    width:240,
-    height:320,
+    width:130,
+    height:180,
     justifyContent: 'flex-end',
     borderRadius:8,
     overflow: 'hidden',
