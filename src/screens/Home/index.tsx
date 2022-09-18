@@ -5,12 +5,20 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { GameCard , GameCardProps } from '../../components/GameCard';
 import logoImg from '../../assets/logo-nlw-esports.png'
 import { Heading } from '../../components/Heading';
-
+import { Background } from '../../components/Background';
+import { useNavigation } from '@react-navigation/native'
 import { styles } from './styles';
 
 export function Home() {
 
   const [games , setGames] = useState<GameCardProps[]>([]);
+
+  const navigation = useNavigation();
+
+  function handleOpenGame( { id,title,bannerUrl }: GameCardProps ){
+    navigation.navigate('game' , { id,title,bannerUrl } );
+
+  }
 
   useEffect(() => {
     fetch('http://192.168.2.113:3333/games')
@@ -19,6 +27,8 @@ export function Home() {
   }, []);
 
   return (
+    <Background>
+
     <SafeAreaView style={styles.container}>
       <Image
       source={logoImg}
@@ -36,6 +46,7 @@ export function Home() {
         renderItem={({item}) =>(
           <GameCard 
             data={item}
+            onPress={() => handleOpenGame(item)}
           />
         )}
         showsHorizontalScrollIndicator={false}
@@ -43,5 +54,6 @@ export function Home() {
         contentContainerStyle={styles.contentList}
       /> 
     </SafeAreaView>
+    </Background>
   );
 }
