@@ -18,13 +18,12 @@ export function Home() {
 
   const navigation = useNavigation();
 
-  // function handleOpenGame( { id,title,bannerUrl }: GameCardProps ){
-  //   navigation.navigate( GAMES , { id,title,bannerUrl } );
-
-  // }
+  function handleOpenGaming({ id, title, bannerUrl }: GameCardProps) {
+    navigation.navigate( 'game' as never  , { id, title, bannerUrl } as never);
+  }
 
   useEffect(() => {
-    fetch('http://192.168.2.113:3333/games')
+    fetch('http://192.168.15.10:3333/games')
     .then(response => response.json())
     .then(data => setGames(data))
   }, []);
@@ -49,7 +48,7 @@ export function Home() {
         renderItem={({item}) =>(
           <GameCard 
             data={item}
-            // onPress={() => handleOpenGame(item)}
+            onPress={() => handleOpenGaming(item)}
           />
         )}
         showsHorizontalScrollIndicator={false}

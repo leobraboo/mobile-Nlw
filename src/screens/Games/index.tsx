@@ -32,7 +32,7 @@ export function Game() {
     }
 
     useEffect(() => {
-        fetch(`http://192.168.2.113:3333/games/${game.id}/ads`)
+        fetch(`http://192.168.15.10:3333/games/${game.id}/ads`)
         .then(response => response.json())
         .then(data => setDuos(data))
       }, []);
