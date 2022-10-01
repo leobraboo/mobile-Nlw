@@ -27,6 +27,12 @@ export const styles = StyleSheet.create({
     height: 160,
     borderRadius: 32
   },
+  covernot:{
+    width: 200,
+    height: 160,
+    borderRadius: 60,
+    alignItems: "center"
+  },
   containerList:{
     width:'100%',
 
@@ -35,11 +41,13 @@ export const styles = StyleSheet.create({
 
     paddingLeft: 32,
     paddingRight: 54,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    flex: 1,
+    justifyContent: 'center'
   },
   emptyText:{
     color: THEME.COLORS.CAPTION_300,
     fontSize: THEME.FONT_SIZE.SM,
-    fontFamily: THEME.FONT_FAMILY.REGULAR
+    fontFamily: THEME.FONT_FAMILY.REGULAR,
   }
 });

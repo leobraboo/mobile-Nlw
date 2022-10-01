@@ -19,6 +19,7 @@ export default function App() {
     Inter_900Black
 
   });
+  
 
 
   return (
@@ -29,6 +30,7 @@ export default function App() {
         translucent
       
       />
+
 
       {fontsLoaded ? <Routes /> : <Loading/> }
 

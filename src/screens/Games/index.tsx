@@ -32,7 +32,7 @@ export function Game() {
     }
 
     useEffect(() => {
-        fetch(`http://192.168.15.10:3333/games/${game.id}/ads`)
+        fetch(`http://192.168.2.105:3333/games/${game.id}/ads`)
         .then(response => response.json())
         .then(data => setDuos(data))
       }, []);
@@ -87,7 +87,12 @@ export function Game() {
             showsHorizontalScrollIndicator = {false}
             ListEmptyComponent= {() => (
                 <Text style={styles.emptyText} >
-                    Não há anúncios para esse jogo
+                        Não há anúncios para esse jogo 
+                <Image
+                    source={ logoImg }
+                    style={styles.covernot}
+                    resizeMode='cover'
+                />
                 </Text>
             )}
             />
