@@ -14,7 +14,7 @@ import { GameParams } from '../../@types/navegation';
 import { Heading } from '../../components/Heading';
 import { Background } from '../../components/Background';
 import { DuoCard , DuoCardProps } from '../../components/DuoCard';
-
+import { DuoMatch } from '../../components/DuoMatch';
 
 
 
@@ -96,7 +96,10 @@ export function Game() {
                 </Text>
             )}
             />
-
+        <DuoMatch 
+            visible={true}
+            discord='leobrabo'
+        />
         </SafeAreaView>
     </Background>
   );
