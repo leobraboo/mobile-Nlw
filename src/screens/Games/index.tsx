@@ -5,6 +5,7 @@ import { useRoute , useNavigation } from '@react-navigation/native'
 import { Entypo } from '@expo/vector-icons'
 
 import logoImg from '../../assets/logo-nlw-esports.png'
+import adImg from '../../assets/games/game-1.png'
 
 import { THEME } from '../../theme';
 import { styles } from './styles';
@@ -89,7 +90,7 @@ export function Game() {
                 <Text style={styles.emptyText} >
                         Não há anúncios para esse jogo 
                 <Image
-                    source={ logoImg }
+                    source={ adImg }
                     style={styles.covernot}
                     resizeMode='cover'
                 />
