@@ -23,6 +23,7 @@ export function Game() {
 
 
     const [duos , setDuos] = useState<DuoCardProps[]>([])
+    const [ discordDuoSelected , setDiscordDuoSelected ] = useState (''); 
     
     const navegation = useNavigation();
     const route = useRoute();
@@ -30,6 +31,13 @@ export function Game() {
 
     function handleBack (){
         navegation.goBack();
+    }
+
+    async function getDiscordUser(adsId: any){
+        fetch(`http://192.168.2.105:3333/ads/${adsId.id}/discord`)
+        .then(response => response.json())
+        .then(data => setDiscordDuoSelected(data.discord))
+
     }
 
     useEffect(() => {
@@ -78,7 +86,7 @@ export function Game() {
                 renderItem={( {item} ) =>(
                     <DuoCard
                      data={item}
-                     onConnect={() => {}}
+                     onConnect={() => getDiscordUser(item.id)}
                      />
                 
             )}
@@ -98,8 +106,9 @@ export function Game() {
             )}
             />
         <DuoMatch 
-            visible={true}
+            visible={discordDuoSelected.length > 0  }
             discord='leobrabo'
+            onclose={() => setDiscordDuoSelected('')}
         />
         </SafeAreaView>
     </Background>
