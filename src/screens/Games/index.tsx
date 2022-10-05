@@ -34,14 +34,14 @@ export function Game() {
     }
 
     async function getDiscordUser(adsId: any){
-        fetch(`http://192.168.2.105:3333/ads/${adsId.id}/discord`)
+        fetch(`http://192.168.2.104:3333/ads/${adsId.id}/discord`)
         .then(response => response.json())
         .then(data => setDiscordDuoSelected(data.discord))
 
     }
 
     useEffect(() => {
-        fetch(`http://192.168.2.105:3333/games/${game.id}/ads`)
+        fetch(`http://192.168.2.104:3333/games/${game.id}/ads`)
         .then(response => response.json())
         .then(data => setDuos(data))
       }, []);
@@ -65,9 +65,8 @@ export function Game() {
                 style={styles.logo}
                 />
 
-            <View style={styles.right} />
+            </View >
 
-            </View>
 
             <Image
                 source={{ uri: game.bannerUrl}}
@@ -79,6 +78,7 @@ export function Game() {
             title={game.title}
             subtitle="Conecte-se e comece a jogar"
             />
+            
 
             <FlatList
                 data={duos}
@@ -95,6 +95,8 @@ export function Game() {
             contentContainerStyle={styles.contentList}
             showsHorizontalScrollIndicator = {false}
             ListEmptyComponent= {() => (
+                <View>
+                    {/* {{game._count.ads === 0 && */}
                 <Text style={styles.emptyText} >
                         Não há anúncios para esse jogo 
                 <Image
@@ -103,13 +105,14 @@ export function Game() {
                     resizeMode='cover'
                 />
                 </Text>
+                </View>
             )}
             />
-        <DuoMatch 
+            <DuoMatch 
             visible={discordDuoSelected.length > 0  }
-            discord='leobrabo'
+            discord={discordDuoSelected}
             onclose={() => setDiscordDuoSelected('')}
-        />
+            />
         </SafeAreaView>
     </Background>
   );
