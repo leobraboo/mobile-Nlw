@@ -34,14 +34,14 @@ export function Game() {
     }
 
     async function getDiscordUser(adsId: any){
-        fetch(`http://192.168.2.104:3333/ads/${adsId.id}/discord`)
+        fetch(`http://192.168.2.108:3333/ads/${adsId.id}/discord`)
         .then(response => response.json())
         .then(data => setDiscordDuoSelected(data.discord))
 
     }
 
     useEffect(() => {
-        fetch(`http://192.168.2.104:3333/games/${game.id}/ads`)
+        fetch(`http://192.168.2.108:3333/games/${game.id}/ads`)
         .then(response => response.json())
         .then(data => setDuos(data))
       }, []);
@@ -71,7 +71,7 @@ export function Game() {
             <Image
                 source={{ uri: game.bannerUrl}}
                 style={styles.cover}
-                resizeMode='cover'
+                resizeMode='center'
             />
 
             <Heading
@@ -92,20 +92,17 @@ export function Game() {
             )}
             horizontal
             style={styles.containerList}
-            contentContainerStyle={styles.contentList}
+            contentContainerStyle={[ duos.length >0 ?  styles.contentList : styles.emptyContent] }
             showsHorizontalScrollIndicator = {false}
             ListEmptyComponent= {() => (
-                <View>
-                    {/* {{game._count.ads === 0 && */}
                 <Text style={styles.emptyText} >
                         Não há anúncios para esse jogo 
-                <Image
+                {/* <Image
                     source={ adImg }
                     style={styles.covernot}
                     resizeMode='cover'
-                />
+                /> */}
                 </Text>
-                </View>
             )}
             />
             <DuoMatch 

@@ -17,6 +17,7 @@ import { Loading } from './src/components/Loading';
 
 import './src/services/notificationConfig';
 import { getPushNotification } from './src/services/getPushNotification';
+import * as Notifications from 'expo-notifications';
 
 
 
@@ -36,6 +37,23 @@ export default function App() {
   useEffect(() => {
     getPushNotification();
   } );
+
+  useEffect(() => {
+    getNotificationListener.current = Notifications.addNotificationReceivedListener( Notification => {
+
+    } );
+
+    responseNotificationListener.current = Notifications.addNotificationReceivedListener(response => {
+
+    })
+
+    return () => {
+      if (getNotificationListener.current && responseNotificationListener.current){
+        Notifications.removeNotificationSubscription(getNotificationListener.current);
+        Notifications.removeNotificationSubscription(responseNotificationListener.current);
+      }
+    }
+  }, []);
 
 
   return (

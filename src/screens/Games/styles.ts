@@ -15,21 +15,27 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   logo:{
-    width: 72,
-    height: 40
+    width: 180,
+    height: 100,
+    marginTop: 24,
+    flex:1,
+    alignItems: 'center'
+
   },
   right:{
     width: 20,
     height: 20
   },
   cover:{
+    margin: 30 ,
+    padding: 10 ,
     width: 311,
-    height: 160,
+    height: 120,
     borderRadius: 32
   },
   covernot:{
     width: 200,
-    height: 160,
+    height: 100,
     borderRadius: 60,
     alignItems: "center"
   },
@@ -39,15 +45,21 @@ export const styles = StyleSheet.create({
   },
   contentList:{
 
-    paddingLeft: 32,
-    paddingRight: 54,
+    paddingLeft:32,
+    paddingRight:64,
     alignItems: 'flex-start',
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'flex-start'
   },
   emptyText:{
     color: THEME.COLORS.CAPTION_300,
     fontSize: THEME.FONT_SIZE.SM,
     fontFamily: THEME.FONT_FAMILY.REGULAR,
+    
+  },
+  emptyContent:{
+    flex:1 ,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
