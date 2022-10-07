@@ -1,7 +1,7 @@
 import { View , Modal, ModalProps, Text , TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 
 import { MaterialIcons } from '@expo/vector-icons'
-import { Activity, CheckCircle } from 'phosphor-react-native'
+import { CheckCircle } from 'phosphor-react-native'
 import * as Clipboard from 'expo-clipboard';
 
 

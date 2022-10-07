@@ -16,10 +16,11 @@ export interface DuoCardProps {
 
 interface Props {
     data: DuoCardProps;
-    onConnect: ( ) => void;
+    onConnect: () => void;
 }
 
 export function DuoCard( {data , onConnect }: Props ) {
+  console.log('opa')
   return (
     <View style={styles.container}>
         <DuoInfo
@@ -42,7 +43,8 @@ export function DuoCard( {data , onConnect }: Props ) {
 
         <TouchableOpacity 
           style={styles.button}
-          onPress={onConnect}
+          onPress={onConnect }
+          
           >
           
 

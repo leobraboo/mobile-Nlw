@@ -14,20 +14,19 @@ export const styles = StyleSheet.create({
     marginTop:28,
     justifyContent: 'space-between'
   },
-  logo:{
-    width: 180,
-    height: 100,
-    marginTop: 24,
-    flex:1,
-    alignItems: 'center'
+  // logo:{
+  //   width: 180,
+  //   height: 100,
+  //   marginTop: 24,
+  //   flex:1,
+  //   alignItems: 'center'
 
-  },
+  // },
   right:{
     width: 20,
     height: 20
   },
   cover:{
-    margin: 30 ,
     padding: 10 ,
     width: 311,
     height: 120,

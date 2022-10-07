@@ -60,10 +60,10 @@ export function Game() {
 
                 </TouchableOpacity>
 
-                <Image
+                {/* <Image
                 source={ logoImg }
                 style={styles.logo}
-                />
+                /> */}
 
             </View >
 
@@ -92,8 +92,8 @@ export function Game() {
             )}
             horizontal
             style={styles.containerList}
-            contentContainerStyle={[ duos.length >0 ?  styles.contentList : styles.emptyContent] }
-            showsHorizontalScrollIndicator = {false}
+            contentContainerStyle={[ duos.length > 0 ?  styles.contentList : styles.emptyContent] }
+            showsHorizontalScrollIndicator
             ListEmptyComponent= {() => (
                 <Text style={styles.emptyText} >
                         Não há anúncios para esse jogo 
@@ -106,7 +106,7 @@ export function Game() {
             )}
             />
             <DuoMatch 
-            visible={discordDuoSelected.length > 0  }
+            visible={discordDuoSelected.length > 0 }
             discord={discordDuoSelected}
             onclose={() => setDiscordDuoSelected('')}
             />
